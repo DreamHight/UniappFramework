@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{title}}</text></view><van-button vue-id="8dd740cc-1" type="danger" data-event-opts="{{[['^click',[['getUserInfo']]]]}}" data-com-type="wx" bind:click="__e" bind:__l="__l" vue-slots="{{['default']}}">getUserInfo - button</van-button></view>
