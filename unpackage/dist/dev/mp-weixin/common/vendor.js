@@ -8023,8 +8023,13 @@ function normalizeComponent (
   !*** G:/CZW/project/test/HBuilderProjects/UniappFramework/utils/index.js ***!
   \***************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.formatTimes = void 0;var formatNumber = function formatNumber(n) {
+  n = n.toString();
+  return n[1] ? n : '0' + n;
+};
 var formatTimes = function formatTimes(date) {var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'datetime';var sign = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '/';
   var year = date.getFullYear();
   var month = date.getMonth() + 1;
@@ -8040,15 +8045,21 @@ var formatTimes = function formatTimes(date) {var type = arguments.length > 1 &&
   } else if (type === 'time') {
     return [hour, minute, second].map(formatNumber).join(':');
   }
-};
+};exports.formatTimes = formatTimes;
 
-var formatNumber = function formatNumber(n) {
-  n = n.toString();
-  return n[1] ? n : '0' + n;
-};
+/***/ }),
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */
+/*!*************************************************************************!*\
+  !*** G:/CZW/project/test/HBuilderProjects/UniappFramework/api/index.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-module.exports = {
-  formatTimes: formatTimes };
+
 
 /***/ })
 ]]);

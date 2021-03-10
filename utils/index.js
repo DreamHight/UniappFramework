@@ -1,4 +1,8 @@
-const formatTimes = (date, type='datetime', sign='/') => {
+const formatNumber = n => {
+	n = n.toString()
+	return n[1] ? n : '0' + n
+}
+export const formatTimes = (date, type='datetime', sign='/') => {
 	const year = date.getFullYear()
 	const month = date.getMonth() + 1
 	const day = date.getDate()
@@ -13,13 +17,4 @@ const formatTimes = (date, type='datetime', sign='/') => {
 	}else if(type ==='time'){
 		return [hour, minute, second].map(formatNumber).join(':')
 	}
-}
-
-const formatNumber = n => {
-	n = n.toString()
-	return n[1] ? n : '0' + n
-}
-
-module.exports = {
-	formatTimes
 }
