@@ -1,0 +1,227 @@
+<template>
+	<view class="page">
+		<view>{{ datas.access_token }}</view>
+		<button @click="onLogin">onLogin</button>
+		<view>{{ department.length && department[0].oid }}</view>
+		<button @click="onTest">onTest</button>
+
+		<u-avatar
+			text="是"
+		>
+			<text>发</text>
+		</u-avatar>
+		<u-button></u-button>
+		<view>=====</view>
+
+		<!-- <view class="cu-bar tabbar bg-white shadow foot">
+			<view class="action text-green">
+				<view class="cuIcon-homefill"></view>首页
+			</view>
+			<view class="action text-gray">
+				<view class="cuIcon-similar"></view>记录
+			</view>
+			<view class="action text-gray add-action">
+				<button class="cu-btn cuIcon-add bg-green shadow"></button>报备
+			</view>
+			<view class="action text-gray">
+				<view class="cuIcon-cart">
+					<view class="cu-tag badge">99</view>
+				</view>购物车
+			</view>
+			<view class="action text-gray">
+				<view class="cuIcon-my">
+					<view class="cu-tag badge"></view>
+				</view>我的
+			</view>
+		</view> -->
+
+		<!-- <view class="cu-bar tabbar bg-white shadow foot">
+			<view class="action" @click="NavChange" data-cur="basics">
+				<view class='cuIcon-cu-image'>
+					<image :src="'/static/tabbar/basics' + [PageCur=='basics'?'_cur':''] + '.png'"></image>
+				</view>
+				<view :class="PageCur=='basics'?'text-green':'text-gray'">元素</view>
+			</view>
+			<view class="action" @click="NavChange" data-cur="component">
+				<view class='cuIcon-cu-image'>
+					<image :src="'/static/tabbar/component' + [PageCur == 'component'?'_cur':''] + '.png'"></image>
+				</view>
+				<view :class="PageCur=='component'?'text-green':'text-gray'">组件</view>
+			</view>
+			<view class="action" @click="NavChange" data-cur="plugin">
+				<view class='cuIcon-cu-image'>
+					<image :src="'/static/tabbar/plugin' + [PageCur == 'plugin'?'_cur':''] + '.png'"></image>
+				</view>
+				<view :class="PageCur=='plugin'?'text-green':'text-gray'">扩展</view>
+			</view>
+		</view> -->
+	</view>
+</template>
+
+<script>
+	import UAvatar from '@/components/basics/u-avatar/u-avatar.vue'
+	import UButton from '@/components/basics/u-button/u-button.vue'
+	export default {
+		name: 'Login',
+		components: {
+			UAvatar,
+			UButton,
+		},
+		data() {
+			return {
+				datas: {
+					access_token: 'access_token'
+				},
+				department: []
+			}
+		},
+		onInit(e) {
+			// 监听页面初始化，其参数同 onLoad 参数，为上个页面传递的数据，参数类型为 Object（用于页面传参），触发时机早于 onLoad
+			// 【百度小程序】
+			console.log('Page Init', e)
+		},
+		onLoad(e) {
+			// 监听页面加载，其参数为上个页面传递的数据，参数类型为 Object（用于页面传参）
+			console.log('Page Load', e)
+		},
+		onShow() {
+			// 监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面
+			console.log('Page Show')
+		},
+		onReady() {
+			// 监听页面初次渲染完成。注意如果渲染速度快，会在页面进入动画完成前触发
+			console.log('Page Ready')
+		},
+		onHide() {
+			// 监听页面隐藏	
+			console.log('Page Hide')
+		},
+		onUnload() {
+			// 监听页面卸载
+			console.log('Page Unload')
+		},
+
+		onResize() {
+			// 监听窗口尺寸变化【App、微信小程序】
+			console.log('Page Resize')
+		},
+		onPullDownRefresh() {
+			// 监听用户下拉动作，一般用于下拉刷新
+			console.log('Page PullDownRefresh')
+		},
+		onReachBottom() {
+			// 页面滚动到底部的事件（不是scroll-view滚到底），常用于下拉下一页数据。具体见下方注意事项
+			console.log('Page ReachBottom')
+		},
+		onTabItemTap(e) {
+			// 点击 tab 时触发，参数为Object，具体见下方注意事项
+			// 【微信小程序、支付宝小程序、百度小程序、H5、App（自定义组件模式）】
+			console.log('Page TabItemTap', e)
+		},
+		onShareAppMessage() {
+			// 用户点击右上角分享【微信小程序、百度小程序、字节跳动小程序、支付宝小程序】
+			console.log('Page ShareAppMessage')
+		},
+
+		onPageScroll(e) {
+			// 监听页面滚动，参数为Object【nvue暂不支持】
+			console.log('Page PageScroll', e)
+		},
+		onNavigationBarButtonTap(e) {
+			// 监听原生标题栏按钮点击事件，参数为Object【App、H5】
+			console.log('Page NavigationBarButtonTap', e)
+		},
+		onBackPress(e) {
+			// 监听页面返回，返回 event = {from:backbutton、 navigateBack}，
+			// backbutton 表示来源是左上角返回按钮或 android 返回键；
+			// navigateBack表示来源是 uni.navigateBack ；
+			// 详细说明及使用：onBackPress 详解。
+			// 支付宝小程序只有真机能触发，只能监听非navigateBack引起的返回，不可阻止默认行为。
+			//【app、H5、支付宝小程序】
+			console.log('Page BackPress', e)
+		},
+		onNavigationBarSearchInputChanged() {
+			// 监听原生标题栏搜索输入框输入内容变化事件【App、H5】】
+			console.log('Page NavigationBarSearchInputChanged')
+		},
+		onNavigationBarSearchInputConfirmed() {
+			// 监听原生标题栏搜索输入框搜索事件，用户点击软键盘上的“搜索”按钮时触发【App、H5】】
+			console.log('Page NavigationBarSearchInputConfirmed')
+		},
+		onNavigationBarSearchInputClicked() {
+			// 监听原生标题栏搜索输入框点击事件	【App、H5】
+			console.log('Page NavigationBarSearchInputClicked')
+		},
+		onShareTimeline() {
+			// 监听用户点击右上角转发到朋友圈【微信小程序】
+			console.log('Page ShareTimeline')
+		},
+		onAddToFavorites() {
+			// 监听用户点击右上角收藏【微信小程序】
+			console.log('Page AddToFavorites')
+		},
+		methods: {
+			onLogin() {
+				// this.uApi.login.onLogin({
+				// 	target: this,
+				// 	variable: 'datas',
+				// 	params: {
+				// 		username: 'tnzwq',
+				// 		password: '123123',
+				// 		req_type: 'form',
+				// 		login_type: '账号密码登陆',
+				// 		grant_type: 'password'
+				// 	},
+				// 	cache: true,
+				// 	loading: true,
+				// 	success: (res) => {
+				// 		console.log('successsuccessuApi', res)
+				// 		try {
+				// 			uni.setStorageSync('loginInfo', res.data.data)
+				// 		} catch (e) {
+				// 			console.log('setStorageSync-loginInfo: ', e)
+				// 		}
+				// 	},
+				// 	fail: (err) => {
+				// 		console.log('failfail', err)
+				// 	}
+				// })
+
+				// this.uApi.login.onLogout()
+
+				// this.uApi.department.getDepartment({
+				// 	params: {
+				// 		operator: "20001"
+				// 	}
+				// })
+
+				// this.datas = uni.getStorageSync('loginInfo')
+
+				// getApp().globalData.userInfo = {name: 'test'}
+
+				// this.uRouter({url: '../index/index'})
+
+				// this.uApi.user.getUserInfo({
+				// 	success: (res) => {
+				// 		console.log('getUserInfo', res)
+				// 	},
+				// })
+			},
+			onTest() {
+				// this.uApi.login.onLogout()
+
+				this.uApi.department.getDepartment({
+					target: this,
+					variable: 'department',
+					params: {
+						operator: '20001'
+					},
+					// method: 'GET',
+					loading: true,
+				})
+			}
+		}
+	}
+</script>
+
+<style></style>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "报备",
+  "usingComponents": {
+    "add-form": "/pages/reportModule/addReport/components/AddForm/index",
+    "u-upload": "/components/basics/u-upload/u-upload",
+    "upload-image": "/pages/reportModule/addReport/components/UploadImage/index",
+    "u-button": "/components/basics/u-button/u-button"
+  }
+}

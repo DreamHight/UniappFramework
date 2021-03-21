@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "记录",
+  "usingComponents": {
+    "u-swiper": "/components/components/u-swiper/u-swiper",
+    "u-grid": "/components/components/u-grid/u-grid",
+    "u-input": "/components/basics/u-input/u-input",
+    "u-list": "/components/components/u-list/u-list"
+  }
+}

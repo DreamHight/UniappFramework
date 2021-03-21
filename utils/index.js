@@ -10,12 +10,18 @@ export const formatTimes = (date, type='datetime', sign='/') => {
 	const hour = date.getHours()
 	const minute = date.getMinutes()
 	const second = date.getSeconds()
-
-	if(type === 'datetime'){
-		return [year, month, day].map(formatNumber).join(sign) + ' ' + [hour, minute, second].map(formatNumber).join(':')
-	}else if(type === 'date'){
-		return [year, month, day].map(formatNumber).join(sign)
-	}else if(type ==='time'){
-		return [hour, minute, second].map(formatNumber).join(':')
+	const typeJson = {
+		'datetime': () => ([year, month, day].map(formatNumber).join(sign) + ' ' + [hour, minute, second].map(formatNumber).join(':')),
+		'date': () => [year, month, day].map(formatNumber).join(sign),
+		'year': () => year,
+		'month': () => month,
+		'day': () => day,
+		'ym': () => [year, month].map(formatNumber).join(sign),
+		'md': () => [month, day].map(formatNumber).join(sign),
+		'time': () => [hour, minute, second].map(formatNumber).join(':'),
+		'hour': () => hour,
+		'minute': () => minute,
+		'hm': () => [hour, minute].map(formatNumber).join(':')
 	}
+	return typeJson[type]()
 }

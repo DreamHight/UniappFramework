@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "选择品类",
+  "usingComponents": {
+    "u-input": "/components/basics/u-input/u-input",
+    "u-tag": "/components/basics/u-tag/u-tag"
+  }
+}

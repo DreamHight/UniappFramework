@@ -1,0 +1,1 @@
+<view class="u-switch data-v-795f70e0"><switch class="{{['data-v-795f70e0',checked?'checked':'',icon,color,radius?'radius':'']}}" checked="{{checked}}" disabled="{{disabled}}" data-event-opts="{{[['change',[['handleChange',['$event']]]]]}}" bindchange="__e"></switch></view>

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-upload": "/components/basics/u-upload/u-upload",
+    "u-input": "/components/basics/u-input/u-input"
+  }
+}

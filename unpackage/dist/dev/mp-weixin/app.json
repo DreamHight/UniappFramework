@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/recordModule/recordList/index",
+    "pages/reportModule/addReport/index",
+    "pages/mineModule/userInfo/index",
+    "pages/reportModule/getCategory/index",
+    "pages/loginModule/login/index",
     "pages/index/index"
   ],
   "subPackages": [],
@@ -9,8 +14,31 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
-  "usingComponents": {
-    "van-button": "/wxcomponents/vant-weapp/button/index"
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/recordModule/recordList/index",
+        "iconPath": "static/tabbar/basics.png",
+        "selectedIconPath": "static/tabbar/basics_cur.png",
+        "text": "记录"
+      },
+      {
+        "pagePath": "pages/reportModule/addReport/index",
+        "iconPath": "static/tabbar/plugin.png",
+        "selectedIconPath": "static/tabbar/plugin_cur.png",
+        "text": "报备"
+      },
+      {
+        "pagePath": "pages/mineModule/userInfo/index",
+        "iconPath": "static/tabbar/about.png",
+        "selectedIconPath": "static/tabbar/about_cur.png",
+        "text": "我的"
+      }
+    ]
   },
-  "sitemapLocation": "sitemap55.json"
+  "usingComponents": {}
 }

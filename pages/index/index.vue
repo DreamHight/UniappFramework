@@ -1,15 +1,15 @@
 <template>
-	<view class="content">
+	<view class="page">
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
 			<text class="title">{{ title }}</text>
 		</view>
-		<van-button type="danger" @click="getUserInfo">getUserInfo - button</van-button>
+		<van-button @click="dingyue">dingyue</van-button>
+		<van-button type="danger" @click="getUserInfo">getUserInfo</van-button>
 	</view>
 </template>
 
 <script>
-	import { formatTimes } from '../../utils/index.js'
 	export default {
 		data() {
 			return {
@@ -29,9 +29,8 @@
 			// 监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面
 			console.log('Page Show')
 			
-			console.log(formatTimes(new Date()))
-			console.log(formatTimes(new Date(), 'date', '-'))
-			console.log(formatTimes(new Date(), 'time'))
+			// console.log(getApp().globalData.userInfo)
+			// this.title = getApp().globalData.userInfo.name
 		},
 		onReady() {
 			// 监听页面初次渲染完成。注意如果渲染速度快，会在页面进入动画完成前触发
@@ -106,17 +105,29 @@
 			console.log('Page AddToFavorites')
 		},
 		methods: {
+			dingyue() {
+				uni.requestSubscribeMessage({
+				  tmplIds: [
+						'3ZPKP4KmgNWx97DtiefnVSu0uN5cG-_3W8wckqGA8mc',
+						'jEIl2dBC-7gemkpjxmjm38WBEXaEWvhFDDP8mmWVAnQ'
+					],
+				  success (res) {
+					 	console.log('requestSubscribeMessage', res)
+				  }
+				})
+			},
 			getUserInfo() {
 				// 获取用户信息
 				uni.getSetting({
 					success: res => {
+						console.log('resres',res)
 						if (res.authSetting['scope.userInfo']) {
 							// 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
 							uni.getUserInfo({
 								success: res => {
 									// 可以将 res 发送给后台解码出 unionId
 									console.log(res)
-									getApp().globalData.userInfo = res.userInfo
+									// getApp().globalData.userInfo = res.userInfo
 									this.title = res.userInfo.nickName
 									// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
 									// 所以此处加入 callback 以防止这种情况
@@ -125,16 +136,55 @@
 									}
 								}
 							})
+						}else{
+							uni.login({
+							  success (res) {
+									console.log('res===', res)
+									if (res.code) {
+										//发起网络请求
+										uni.request({
+											url: 'http://localhost/php/xcxtemplate.php',
+											data: {
+												code: res.code
+											}
+										})
+									} else {
+										console.log('登录失败！' + res.errMsg)
+									}
+							  }
+							})
 						}
 					}
 				})
+
+				// 获取用户信息
+				// uni.getSetting({
+				// 	success: res => {
+				// 		if (res.authSetting['scope.userInfo']) {
+				// 			// 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+				// 			uni.getUserInfo({
+				// 				success: res => {
+				// 					// 可以将 res 发送给后台解码出 unionId
+				// 					console.log(res)
+				// 					getApp().globalData.userInfo = res.userInfo
+				// 					this.title = res.userInfo.nickName
+				// 					// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+				// 					// 所以此处加入 callback 以防止这种情况
+				// 					if (this.userInfoReadyCallback) {
+				// 						this.userInfoReadyCallback(res)
+				// 					}
+				// 				}
+				// 			})
+				// 		}
+				// 	}
+				// })
 			}
 		}
 	}
 </script>
 
 <style>
-	.content {
+	.page {
 		display: flex;
 		flex-direction: column;
 		align-items: center;

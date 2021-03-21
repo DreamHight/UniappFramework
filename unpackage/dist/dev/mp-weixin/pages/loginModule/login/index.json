@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "登录",
+  "usingComponents": {
+    "u-avatar": "/components/basics/u-avatar/u-avatar",
+    "u-button": "/components/basics/u-button/u-button"
+  }
+}

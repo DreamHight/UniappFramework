@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-picker": "/components/basics/u-picker/u-picker",
+    "u-input": "/components/basics/u-input/u-input"
+  }
+}

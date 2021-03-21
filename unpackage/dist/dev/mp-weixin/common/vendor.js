@@ -822,7 +822,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"xndreport","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"UniappFramework","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7318,7 +7318,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"xndreport","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"UniappFramework","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7339,14 +7339,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"xndreport","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"UniappFramework","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"xndreport","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"UniappFramework","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7432,7 +7432,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"xndreport","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"UniappFramework","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7870,9 +7870,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!***********************************************************************!*\
-  !*** G:/CZW/project/test/HBuilderProjects/UniappFramework/pages.json ***!
-  \***********************************************************************/
+/*!****************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/pages.json ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8012,54 +8012,544 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */
+/* 11 */
+/*!******************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/api/index.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 批量注册接口
+var R = __webpack_require__(12);
+var services = {};
+R.keys().forEach(function (key) {
+  var _keyArr = key.split(".");
+  var _key = _keyArr[1].substr(1);
+  services[_key] = R(key)[_key];
+});var _default =
+
+services;exports.default = _default;
+
+/***/ }),
+/* 12 */
+/*!************************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/api sync \.api\.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./department.api.js": 13,
+	"./login.api.js": 18,
+	"./user.api.js": 20
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 12;
+
+/***/ }),
+/* 13 */
 /*!***************************************************************************!*\
-  !*** G:/CZW/project/test/HBuilderProjects/UniappFramework/utils/index.js ***!
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/api/department.api.js ***!
   \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.formatTimes = void 0;var formatNumber = function formatNumber(n) {
+Object.defineProperty(exports, "__esModule", { value: true });exports.department = void 0;var _request = __webpack_require__(/*! @/utils/request */ 14);function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}
+
+var domain = 'url_department'; //'url_base' //'url_department'//
+
+var department = {
+  getDepartment: function getDepartment(options) {
+    console.log(options);
+
+    var params = {
+      url: '/sys/operatordepartment/getDepartmentByOperator',
+      // url: 'demo/index.php',
+      data: options
+      // timeout: 1000
+    };
+    // request(domain, params)
+    // const requestTask = request(domain, params)
+    (0, _request.request)(domain, params).then(function (data) {var _data = _slicedToArray(
+      data, 2),error = _data[0],res = _data[1];
+      if (!error && res && res.data.code === 1) {
+        console.log('api-request-then: ', res);
+      }
+    });
+  } };exports.department = department;
+
+/***/ }),
+/* 14 */
+/*!**********************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/utils/request.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = void 0;var _domain = __webpack_require__(/*! @/configs/domain */ 15);
+var _index = __webpack_require__(/*! @/common/index */ 16);
+var _setting = __webpack_require__(/*! ../configs/setting */ 17);function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}
+
+
+
+
+
+
+
+// class Request {
+// constructor() {
+var contentTypeJson = {
+  'json': 'application/json;charset=utf-8',
+  'form': 'application/x-www-form-urlencoded;charset=UTF-8' };
+
+// }
+
+
+// 处理请求的参数
+var getConfigs = function getConfigs(baseURL, options) {
+  var params = JSON.parse(JSON.stringify(options));
+  if (!params.url) {
+    throw '噢！！！请求参数中缺少请求地址~~~';
+  }
+
+  var authorization = _setting.requestToken && ((0, _index.getToken)() || _setting.requestBasic);
+  var contentType = params.data.req_type ? contentTypeJson[params.data.req_type] : contentTypeJson.json;
+  var headers = {
+    'Content-Type': contentType };
+
+  if (_setting.requestToken) {
+    headers['Authorization'] = authorization;
+  }
+  // 判断是否有自定义的header，和 'Content-Type'
+  if (params.header) {
+    for (var key in params.header) {
+      headers[key] = params.header[key];
+      if ('Content-Type') {
+        headers[key] = contentTypeJson[params.header[key]];
+      }
+    }
+  }
+  // 需要统一请求的参数
+  var paramsData = params.data || {};
+  if (_setting.requestParams && JSON.stringify(_setting.requestParams) !== "{}") {
+    for (var _key in _setting.requestParams) {
+      paramsData[_key] = _setting.requestParams[_key];
+    }
+  }
+  params.url = _domain.domains[_setting.environment][baseURL] + params.url;
+  params.data = paramsData;
+  params.header = headers;
+  params.method = params.method || _setting.requestMethod;
+  params.timeout = params.timeout || _setting.requestTimeout;
+  return params;
+};
+
+// 请求缓存的处理
+var setCache = function setCache(options) {
+  var cache = false;
+  if (options.data['cache']) {
+    console.log('cache-options');
+    cache = true;
+  }
+  return cache;
+};
+
+// 发送请求前的处理
+var beforeSend = function beforeSend(baseURL, options) {
+  if (options.data['loading']) {
+    uni.showLoading({
+      title: '加载中' });
+
+  }
+
+  var newOptions = {};
+  var keywords = ['target', 'variable', 'success', 'fail', 'cache', 'loading'];
+  var requestwords = [
+  'header', 'method', 'timeout', 'dataType',
+  'responseType', 'sslVerify', 'withCredentials',
+  'firstIpv4', 'success', 'fail', 'complete'];
+
+  // 拆分提取参数
+  for (var key in options) {
+    if (!keywords.includes(key)) {
+      newOptions[key] = options[key];
+    }
+    if (key === 'data') {
+      newOptions[key] = options[key].params;
+      for (var k in options[key]) {
+        if (requestwords.includes(k)) {
+          newOptions[k] = options[key][k];
+        }
+      }
+    }
+  }
+
+  var params = getConfigs(baseURL, newOptions);
+  return params;
+};
+
+// 发送请求的处理
+var send = function send(options, params) {
+  var requestTask = uni.request(params);
+  requestTask.then(function (data) {var _data = _slicedToArray(
+    data, 2),error = _data[0],res = _data[1];
+    if (error) {
+      uni.showToast({
+        title: error.errMsg,
+        duration: 3000,
+        icon: 'none' });
+
+    }
+    if (res) {
+      callback(options, res);
+    }
+  });
+  return requestTask;
+
+  // Promise
+  // return new Promise((resolve, reject) => {
+  // 	params['success'] = (res) => {
+  // 		console.log('==success==', res)
+  // 		resolve(res)
+  // 		callback(options, res)
+  // 	}
+  // 	params['fail'] = (error) => {
+  // 		console.log('==fail==', error)
+  // 		uni.showToast({
+  // 			title: error.errMsg,
+  // 			duration: 3000,
+  // 			icon: 'none'
+  // 		})
+  // 		callback(options, error)
+  // 	}
+  // 	params['complete'] = (complete) => {
+  // 		console.log('==complete==', complete)
+  // 		if(options.data['loading']){
+  // 			uni.hideLoading()
+  // 		}
+  // 	}
+  // 	uni.request(params)
+  // })
+};
+
+// 请求成功后的处理
+var callback = function callback(options, res) {
+  if (options.data['loading']) {
+    uni.hideLoading();
+  }
+
+  if (res.data.code === 1) {
+    if (options.data.success) {
+      options.data.success(res.data);
+    } else {
+      if (options.data.target && options.data.variable) {
+        options.data.target[options.data.variable] = res.data.data;
+      }
+    }
+  } else {
+    uni.showToast({
+      title: res.data.msg,
+      duration: 2000,
+      icon: 'none' });
+
+    if (options.data.fail) {
+      options.data.fail(res.data);
+    }
+  }
+};
+
+// 异步请求
+var request = function request(baseURL, options) {
+  // 请求缓存的处理
+  setCache(options);
+
+  // 发送请求前的处理
+  var params = beforeSend(baseURL, options);
+
+  // 发送请求的处理
+  return send(options, params);
+};exports.request = request;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 15 */
+/*!***********************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/configs/domain.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.domains = void 0;var domains = {
+  development: {
+    url_base: "http://localhost/", //"http://139.159.136.72:8000",
+    url_login: "http://b00.zjxnd.com", //"http://139.159.136.72:8004",
+    url_department: "http://b01.zjxnd.com" //"http://139.159.136.72:8004",
+  },
+  production: {
+    url_base: "http://b00.zjxnd.com",
+    url_login: "http://b00.zjxnd.com",
+    url_department: "http://b01.zjxnd.com" } };exports.domains = domains;
+
+/***/ }),
+/* 16 */
+/*!*********************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/common/index.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.getToken = void 0;var getToken = function getToken() {
+  var token;
+  var temp = uni.getStorageSync('loginInfo');
+  if (temp) {
+    token = 'Bearer ' + temp.access_token;
+  }
+  return token;
+};exports.getToken = getToken;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 17 */
+/*!************************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/configs/setting.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.theme = exports.environment = exports.requestToken = exports.requestParams = exports.requestMethod = exports.requestTimeout = exports.requestBasic = void 0; // 统一请求配置
+var requestBasic = "Basic Y2xpZW50XzI6c2VjcmV0";exports.requestBasic = requestBasic;
+var requestTimeout = 60000;exports.requestTimeout = requestTimeout;
+var requestMethod = 'POST';exports.requestMethod = requestMethod;
+var requestParams = {};exports.requestParams = requestParams;
+var requestToken = true;
+
+// 项目环境配置 development production
+exports.requestToken = requestToken;var environment = 'development';
+
+// 项目样式配置
+exports.environment = environment;var theme = "";exports.theme = theme;
+
+/***/ }),
+/* 18 */
+/*!**********************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/api/login.api.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.login = void 0;var _service = _interopRequireDefault(__webpack_require__(/*! @/utils/service */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var login = {
+  onLogin: {
+    url: '/oauth2/login' },
+
+  onLogout: function onLogout() {
+    uni.clearStorage();
+  } };exports.login = login;
+
+
+_service.default.parseApi('url_login', 'login', login);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 19 */
+/*!**********************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/utils/service.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = __webpack_require__(/*! @/utils/request */ 14);function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+
+Service = /*#__PURE__*/function () {
+  function Service() {_classCallCheck(this, Service);
+    this.apiList = [];
+  }
+
+  // 接口api化
+  _createClass(Service, [{ key: "parseApi", value: function parseApi(domain, moduleName, module) {var _this = this;
+      if (!module) {
+        throw '缺少接口模块的参数';
+      }
+
+      var obj = this[moduleName] = module;
+      Object.keys(module).forEach(function (item) {
+        if (module[item]['url']) {
+          _this.apiList[moduleName + module[item]['url']] = {
+            state: 'pending',
+            data: [] };
+
+          obj[item] = _this.sendRequest.bind(
+          _this,
+          moduleName,
+          domain,
+          module[item]['url']);
+
+        }
+      });
+    }
+
+    // 调用请求方法
+  }, { key: "sendRequest", value: function sendRequest(moduleName, domain, url, options) {var _this2 = this;
+      var params = {
+        url: url,
+        data: options };
+
+      if (this.apiList[moduleName + url]['state'] === 'pending') {
+        this.apiList[moduleName + url]['state'] = 'loading';
+        (0, _request.request)(domain, params).then(function (data) {var _data = _slicedToArray(
+          data, 2),error = _data[0],res = _data[1];
+          if (!error && res && res.data.code === 1) {
+            _this2.apiList[moduleName + url]['data'] = res.data.data;
+          }
+          _this2.apiList[moduleName + url]['state'] = 'pending';
+        });
+
+        // request(domain, params).then(res => {
+        //   if (res && res.data.code === 1) {
+        //     this.apiList[moduleName + url]['data'] = res.data.data
+        //   }
+        //   this.apiList[moduleName + url]['state'] = 'pending'
+        // })
+      } else {
+        console.log("<".concat(url, "> \u63A5\u53E3\u8BF7\u6C42\u7684\u72B6\u6001\u4E3A\uFF1Aloading"));
+      }
+    } }]);return Service;}();var _default =
+
+
+new Service();exports.default = _default;
+
+/***/ }),
+/* 20 */
+/*!*********************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/api/user.api.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.user = void 0;var user = {
+  getUserInfo: function getUserInfo(options) {
+    console.log(options);
+  } };exports.user = user;
+
+/***/ }),
+/* 21 */
+/*!*********************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/router/index.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.router = void 0;var router = function router(options) {var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'navigateTo';
+  var typeJson = {
+    navigateTo: function navigateTo() {
+      // 保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
+      uni.navigateTo(options);
+    },
+    redirectTo: function redirectTo() {
+      // 关闭当前页面，跳转到应用内的某个页面。
+      uni.redirectTo(options);
+    },
+    reLaunch: function reLaunch() {
+      // 关闭所有页面，打开到应用内的某个页面。
+      uni.reLaunch(options);
+    },
+    switchTab: function switchTab() {
+      // 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
+      uni.switchTab(options);
+    },
+    navigateBack: function navigateBack() {
+      // 关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages() 获取当前的页面栈，决定需要返回几层。
+      uni.navigateBack(options);
+    },
+    preloadPage: function preloadPage() {
+      // 预加载页面，是一种性能优化技术。被预载的页面，在打开时速度更快。
+      // 【App-nvue、H5】
+      uni.preloadPage(options);
+    } };
+
+  typeJson[type]();
+};exports.router = router;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */
+/*!********************************************************************!*\
+  !*** /Users/kevin/Documents/GitHub/UniappFramework/utils/index.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.formatTimes = void 0; // 格式化日期时间
+var formatNumber = function formatNumber(n) {
   n = n.toString();
   return n[1] ? n : '0' + n;
 };
 var formatTimes = function formatTimes(date) {var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'datetime';var sign = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '/';
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var hour = date.getHours();
-  var minute = date.getMinutes();
+  var _year = date.getFullYear();
+  var _month = date.getMonth() + 1;
+  var _day = date.getDate();
+  var _hour = date.getHours();
+  var _minute = date.getMinutes();
   var second = date.getSeconds();
+  var typeJson = {
+    'datetime': function datetime() {return [_year, _month, _day].map(formatNumber).join(sign) + ' ' + [_hour, _minute, second].map(formatNumber).join(':');},
+    'date': function date() {return [_year, _month, _day].map(formatNumber).join(sign);},
+    'year': function year() {return _year;},
+    'month': function month() {return _month;},
+    'day': function day() {return _day;},
+    'ym': function ym() {return [_year, _month].map(formatNumber).join(sign);},
+    'md': function md() {return [_month, _day].map(formatNumber).join(sign);},
+    'time': function time() {return [_hour, _minute, second].map(formatNumber).join(':');},
+    'hour': function hour() {return _hour;},
+    'minute': function minute() {return _minute;},
+    'hm': function hm() {return [_hour, _minute].map(formatNumber).join(':');} };
 
-  if (type === 'datetime') {
-    return [year, month, day].map(formatNumber).join(sign) + ' ' + [hour, minute, second].map(formatNumber).join(':');
-  } else if (type === 'date') {
-    return [year, month, day].map(formatNumber).join(sign);
-  } else if (type === 'time') {
-    return [hour, minute, second].map(formatNumber).join(':');
-  }
+  return typeJson[type]();
 };exports.formatTimes = formatTimes;
-
-/***/ }),
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */
-/*!*************************************************************************!*\
-  !*** G:/CZW/project/test/HBuilderProjects/UniappFramework/api/index.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
 
 /***/ })
 ]]);

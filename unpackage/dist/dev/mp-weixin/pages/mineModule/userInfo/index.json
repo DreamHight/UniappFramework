@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "u-switch": "/components/basics/u-switch/u-switch",
+    "u-grid": "/components/components/u-grid/u-grid",
+    "u-list": "/components/components/u-list/u-list"
+  }
+}
